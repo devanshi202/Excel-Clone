@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="menu">
+        <div class="file active">File</div>
+        <div class="home">Home</div>
+    </div>
+    <div class="menu-options">
+        <div class="file-menu-options">
+            <div class="new">New</div>
+            <div class="open">Open</div>
+            <div class="save">Save</div>
+        </div>
+        <div class="home-menu-options hide">
+            <div class="home-menu one">
+                <select name="font" id="font-select">
+                    <option value="Monospace">Monospace</option>
+                    <option value="Monospace">Monospace</option>
+                    <option value="Monospace">Monospace</option>
+                    <option value="Monospace">Monospace</option>
+                    <option value="Monospace">Monospace</option>
+                </select>
+                <div class="font-styles">
+                   <button class="bold">B</button>
+                   <button class="underline">U</button>
+                   <button class="italic">I</button>
+                </div>
+            </div>
+            <div class="home-menu two">
+                <select name="font-size" id="font-size">
+                    <option value="12">12</option>
+                    <option value="14">14</option>
+                    <option value="16">16</option>
+                    <option value="18">18</option>
+                    <option value="20">20</option>
+                    <option value="22">22</option>
+                </select>
+                <div class="font-color">
+                    <input type="color" id="cell-font-color">
+                    <input type="color" id="cell-color">
+                </div>
+            </div>
+            <div class="home-menu three">
+                <div class="font-alignment">
+                    <button class="left">L</button>
+                    <button class="center">C</button>
+                    <button class="right">R</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="address">Address</div> -->
+    <div class="formula">
+        <input type="text" id="address" disabled>
+        <input type="text" id="formula">
+    </div>
+<div class="content">
+    <div class="top-left-cell"></div>
+     <!-- top row -->
+     <div class="top-row">
+        <!-- 26 -->
+        <%for(let j=0 ; j<26 ; j++){%>
+            <div class="top-row-cell" cellid = <%= j%>> <%= String.fromCharCode(65+j) %>    </div>
+            <%}%>
+    </div>
+
+    <!-- left col -->
+    <div class="left-col">
+        <!-- 100 -->
+        <%for(let j=0 ; j<100 ; j++){%>
+            <div class="left-col-cell" cellid=<%= j%> > <%= j+1%>  </div>
+            <%}%>
+    </div>
+    <div class="cells">
+        <%for(let i=0 ; i<100 ; i++){%>
+            <div class="row">
+                <%for(let j=0 ; j<26 ; j++){%>
+                    <!-- <div class="cell" rowid=<%=i%> colid=<%= j%> ></div> -->
+                    <div class="cell" contentEditable="true" rowid=<%=i%> colid=<%= j%> ></div>
+                    <%}%>
+            </div>
+            <%}%>
+    </div>
+</div>
+<div class="sheets">
+    <div class="sheets-list">
+        <div class="sheet active-sheet" sid="0">Sheet 1</div>
+    </div>
+    <div class="sheet-add"><i class="fas fa-plus-circle"></i></div>
+</div>
+
+
+<script src="./script.js"></script>
+</body>
+</html>
